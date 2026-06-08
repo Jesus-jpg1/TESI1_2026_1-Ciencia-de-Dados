@@ -73,7 +73,7 @@
 
 **Nome do arquivo:** `dados_disciplinas_periodo_1-8.csv`
 **Tabela:** Perfil Socioeconômico e Desempenho Agrupado
-**Descrição:** [Preencha aqui com a descrição, ex: Compila o perfil sociodemográfico dos alunos e apresenta seu desempenho nas disciplinas de forma agrupada por faixas (bins), unificando os dados do 1º ao 8º período.]
+**Descrição:** Compila o perfil sociodemográfico dos alunos e apresenta seu desempenho nas disciplinas de forma agrupada por faixas (bins), unificando os dados do 1º ao 8º período.
 **Descrição das colunas:**
 
 | Coluna | Tipo do Dado | Característica | Significado / Descrição |
