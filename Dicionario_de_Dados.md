@@ -1,8 +1,10 @@
 # Dicionário de Dados - Análise de Evasão em Sistemas de Informação
 
+---
+
 **Nome do arquivo:** `dados_alunos.csv`
 **Tabela:** Histórico de Vínculo e Evasão dos Alunos
-**Descrição:** [Preencha aqui com a descrição, ex: Dados demográficos básicos e o registro da trajetória de permanência (entrada e saída) dos alunos no curso.]
+**Descrição:** Dados demográficos básicos e o registro da trajetória de permanência (entrada e saída) dos alunos no curso.
 **Descrição das colunas:**
 
 | Coluna | Tipo do Dado | Característica | Significado / Descrição |
@@ -25,7 +27,7 @@
 
 **Nome do arquivo:** `dados_alunos_disciplinas.csv`
 **Tabela:** Histórico de Disciplinas e Desempenho Acadêmico
-**Descrição:** [Preencha aqui com a descrição, ex: Detalhamento da vida acadêmica do aluno semestre a semestre, registrando as disciplinas cursadas, notas obtidas e carga horária integralizada.]
+**Descrição:** Detalhamento da vida acadêmica do aluno semestre a semestre, registrando as disciplinas cursadas, notas obtidas e carga horária integralizada.
 **Descrição das colunas:**
 
 | Coluna | Tipo do Dado | Característica | Significado / Descrição |
@@ -49,29 +51,37 @@
 | **SITUACAO_ITEM** | Numérico (Inteiro) | Categórica Numérica | Código numérico interno de sistema que representa a situação da disciplina no histórico. |
 | **CH_TEORICA** | Numérico (Inteiro) | Quantitativa Discreta | Representa a quantidade total de horas teóricas exigidas e cumpridas na disciplina. |
 | **CH_PRATICA** | Numérico (Inteiro) | Quantitativa Discreta | Representa a quantidade total de horas práticas em laboratório ou projeto exigidas na disciplina. |
-| **TOTAL_CARGA_HORARIA**| Numérico (Inteiro) | Quantitativa (Fórmula) | Soma das horas teóricas e práticas, representando o esforço total em horas exigido. |
+| **TOTAL_CARGA_HORARIA** | Numérico (Inteiro) | Quantitativa (Fórmula) | Soma das horas teóricas e práticas, representando o esforço total em horas exigido. |
 | **FORMA_INGRESSO** | Texto (String) | Categórica Nominal | Replica a informação do método pelo qual o aluno ingressou na universidade. |
 | **ANO_INGRESSO** | Numérico (Inteiro) | Temporal | O ano civil de entrada do aluno na graduação. |
 | **FORMA_EVASÃO** | Texto (String) | Categórica Nominal | Replica o status atual do vínculo ou motivo de saída. |
-| **ANO_EVASÃO** | Numérico (Inteiro/Nulo)| Temporal | Ano em que ocorreu a perda do vínculo, ficando nulo ou em branco para alunos ainda ativos. |
+| **ANO_EVASÃO** | Numérico (Inteiro/Nulo) | Temporal | Ano em que ocorreu a perda do vínculo, ficando nulo ou em branco para alunos ainda ativos. |
 | **SEXO** | Texto (Char) | Categórica Nominal | Replica a informação do gênero do aluno no registro. |
 
 ---
 
-**Nome do arquivo:** `dados_alunos_unicos1e2.csv`
-**Tabela:** [Preencha com o nome/apelido da tabela]
-**Descrição:** [Preencha aqui com uma breve descrição do que trata o arquivo, ex: consolidação de alunos únicos dos primeiros períodos.]
-**Descrição das colunas:**
+**Nome do arquivo:** `dados_alunos_unicos.csv` e `dados_alunos_unicos2.csv`
+**Tabela:** Alunos Únicos — Perfil Demográfico por Aluno
+**Descrição:** Consolidação dos dados demográficos e de vínculo institucional com um registro único por aluno, sem repetição por disciplina. O arquivo `dados_alunos_unicos2.csv` possui uma abrangência temporal maior (2004–2024) e nomenclatura mais descritiva nas categorias de idade.
+**Descrição das colunas (comuns a ambos os arquivos):**
 
 | Coluna | Tipo do Dado | Característica | Significado / Descrição |
 | :--- | :--- | :--- | :--- |
-| **[Nome_da_Coluna_1]** | [Tipo] | [Característica] | [Descrição/Significado da coluna 1] |
-| **[Nome_da_Coluna_2]** | [Tipo] | [Característica] | [Descrição/Significado da coluna 2] |
-| **[Nome_da_Coluna_3]** | [Tipo] | [Característica] | [Descrição/Significado da coluna 3] |
+| **ID_ALUNO** | Texto (String) | Identificador Único | Hash MD5 de 32 caracteres que identifica o aluno de forma anônima nos sistemas da instituição. |
+| **IDADE** | Texto (String) | Categórica Ordinal | Faixa etária do aluno no momento do ingresso, agrupada em intervalos (ex: Menos de 19 anos, 19-25 anos, 26-35 anos, Acima de 35 anos). |
+| **ANO_INGRESSO** | Texto (String) | Temporal | Ano de ingresso do aluno no curso de graduação. |
+| **FORMA_INGRESSO** | Texto (String) | Categórica Nominal | Modalidade ou processo seletivo pelo qual o aluno obteve vaga na instituição (ex: Processo Seletivo - SiSU, Vestibular, Enem). |
+| **ANO_EVASAO** | Texto (String) | Temporal | Ano em que o vínculo do aluno foi encerrado. Valor vazio indica aluno ainda ativo ou sem evasão registrada. |
+| **FORMA_EVASAO** | Texto (String) | Categórica Nominal | Motivo ou forma de encerramento do vínculo institucional (ex: Formado, Desistência, Jubilamento, Cancelamento) ou "Sem Evasão" para alunos ativos. |
+| **NATURALIDADE** | Texto (String) | Categórica Nominal | Cidade e estado de nascimento do aluno, no formato Cidade-UF (ex: Rio Branco-AC, Porto Velho-RO). |
+| **ETNIA** | Texto (String) | Categórica Nominal | Cor/raça autodeclarada pelo aluno conforme padrões do IBGE (ex: Branca, Parda, Preta, Amarela, Indígena, Não Declarada). |
+| **DEFICIENCIAS** | Texto (String) | Categórica Nominal | Tipo de deficiência ou necessidade especial declarada pelo aluno (ex: Sem Deficiência, Deficiência Sensorial Visual, Física). |
+| **COTAS** | Texto (String) | Categórica Nominal | Modalidade de cota ou ação afirmativa utilizada pelo aluno no processo seletivo de ingresso (ex: Ampla Concorrência, Candidatos de Escola Pública com Baixa Renda). |
+| **BOLSA** | Texto (String) | Categórica Binária | Indica se o aluno era beneficiário de algum programa de auxílio financeiro ou bolsa acadêmica (Possuia / Não Possuia). |
 
 ---
 
-**Nome do arquivo:** `dados_disciplinas_periodo_1-8.csv`
+**Nome do arquivo:** `dados_disciplinas_periodo_1.csv` a `dados_disciplinas_periodo_8.csv`
 **Tabela:** Perfil Socioeconômico e Desempenho Agrupado
 **Descrição:** Compila o perfil sociodemográfico dos alunos e apresenta seu desempenho nas disciplinas de forma agrupada por faixas (bins), unificando os dados do 1º ao 8º período.
 **Descrição das colunas:**
@@ -90,4 +100,3 @@
 | **MEDIA_FINAL** | Texto (String) | Categórica Ordinal | Faixa de nota final obtida pelo aluno, discretizada em intervalos de valores (ex: 8-10, 5-8, 0-5). |
 | **FALTAS** | Texto (String) | Categórica Ordinal | Percentual de ausências do aluno na disciplina, agrupado em faixas percentuais (ex: 0-5%, Acima de 25%). |
 | **BOLSA** | Texto (String) | Categórica Binária | Indica se o aluno era beneficiário de algum programa de auxílio financeiro ou bolsa acadêmica (Possuía / Não Possuía). |
-
