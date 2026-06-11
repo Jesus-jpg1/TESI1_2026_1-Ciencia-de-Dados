@@ -3,25 +3,47 @@
 ---
 
 **Nome do arquivo:** `dados_alunos.csv`
-**Tabela:** Histórico de Vínculo e Evasão dos Alunos
-**Descrição:** Dados demográficos básicos e o registro da trajetória de permanência (entrada e saída) dos alunos no curso.
+**Tabela:** Histórico Acadêmico, Vínculo e Evasão dos Alunos
+**Descrição:** Dados cadastrais, demográficos, socioeconômicos e de ingresso/evasão dos discentes, integrados ao registro completo de sua trajetória acadêmica em disciplinas (notas, faltas, situação e carga horária).
 **Descrição das colunas:**
-
+  
 | Coluna | Tipo do Dado | Característica | Significado / Descrição |
 | :--- | :--- | :--- | :--- |
-| **ID_PESSOA** | Numérico (Inteiro) | Identificador Único | Código numérico que representa unicamente o aluno como pessoa física dentro dos sistemas da instituição. |
-| **NOME_PESSOA** | Texto (String) | Categórica Nominal | Nome completo do aluno registrado oficialmente na universidade. |
-| **SEXO** | Texto (Char) | Categórica Nominal | Indica o gênero biológico do discente, preenchido com as letras 'M' (Masculino) ou 'F' (Feminino). |
-| **DT_NASCIMENTO** | Data (Date) | Temporal | Data de nascimento do aluno, útil para calcular a idade de ingresso ou evasão. |
-| **FORMA_INGRESSO** | Texto (String) | Categórica Nominal | Método ou processo seletivo pelo qual o aluno entrou no curso (ex: SiSU, Vestibular, ENEM). |
-| **FORMA_EVASAO** | Texto (String) | Categórica Nominal | Descreve o status final do vínculo do aluno, informando o motivo da saída (ex: Jubilamento, Desistência, Formado) ou se ainda está cursando (Sem Evasão). |
-| **COD_CURSO** | Numérico (Inteiro) | Identificador Categórico | Código numérico padrão que representa o curso de graduação (ex: 30 para Sistemas de Informação). |
-| **NOME_UNIDADE** | Texto (String) | Categórica Nominal | Nome por extenso do curso ou departamento ao qual o aluno está vinculado. |
-| **MATR_ALUNO** | Texto (String) | Identificador Único | Número da matrícula acadêmica que identifica o vínculo do aluno com a instituição de ensino. |
-| **NUM_VERSAO** | Texto (String) | Categórica Temporal | Representa o ano e semestre de aprovação do Projeto Pedagógico do Curso (PPC) ao qual o aluno está submetido (ex: grade 1996/1 ou 2008/1). |
-| **PERIODO_INGRESSO** | Texto (String) | Temporal | Indica o ano e o semestre letivo exatos em que o aluno iniciou seus estudos na graduação. |
-| **DT_EVASAO** | Data (Date) | Temporal | Data exata (dia, mês e ano) em que o encerramento do vínculo do aluno foi oficializado no sistema. |
-| **PERIODO_EVASAO** | Texto (String) | Temporal | Indica o ano e o semestre letivo em que ocorreu a evasão, formatura ou encerramento da matrícula. |
+| **Seq** | Numérico (Inteiro) | Identificador Sequencial | Número sequencial incremental que serve como identificador único da linha/registro no arquivo. |
+| **ID** | Texto (String) | Identificador Único | Código hash (MD5) que identifica anonimamente cada aluno, preservando sua privacidade nos sistemas institucionais. |
+| **COD_CURSO** | Numérico (Inteiro) | Identificador Categórico | Código numérico oficial padrão que representa o curso de graduação do aluno (ex: 30 para Sistemas de Informação). |
+| **NOME_CURSO** | Texto (String) | Categórica Nominal | Nome completo do curso superior ao qual o aluno está vinculado (ex: Bacharelado em Sistemas de Informação) |
+| **NIVEL_CURSO** | Texto (String) | Categórica Nominal | Nível acadêmico da formação ofertada pela instituição (ex: Graduação). |
+| **TIPO_CURSO** | Texto (String) | Categórica Nominal | Classificação administrativa do tipo de estrutura acadêmica (ex: Curso). |
+| **MODALIDADE_CURSO** | Texto (String) | Categórica Nominal | Indica a modalidade de ensino do curso (ex: Bacharelado, Licenciatura) |
+| **TURNO_CURSO** | Texto (String) | Categórica Nominal | Turno de oferta regular das aulas do curso (ex: Integral, Noturno, Matutino). |
+| **ESTADO_CIVIL** | Texto (String) | Categórica Nominal | Estado civil do estudante registrado no cadastro acadêmico (ex: Solteiro(a), Casado(a)). |
+| **GENERO** | Texto (String) | Categórica Nominal | Identificação de gênero ou sexo biológico do aluno (pode estar em branco ou omitido em alguns registros). |
+| **DT_NASCIMENTO** | Data (Date) | Temporal | Data de nascimento do aluno no formato AAAA-MM-DD, útil para análises de faixa etária no ingresso e evasão. |
+| **ANO_INGRESSO** | Numérico (Inteiro) | Temporal | Ano civil em que o aluno iniciou oficialmente o seu vínculo com o curso de graduação (ex: 2019). |
+| **FORMA_INGRESSO** | Texto (String) | Categórica Nominal | Método ou processo seletivo oficial utilizado pelo discente para ingressar no curso (ex: Processo Seletivo - SiSU, Transferência Externa, Portador de Diploma Superior). |
+| **ANO_EVASAO** | Numérico (Inteiro) | Temporal | Ano civil em que foi oficializado o encerramento ou interrupção do vínculo do discente. Fica em branco se não houver evasão. |
+| **FORMA_EVASAO** | Texto (String) | Categórica Nominal | Descreve o motivo do encerramento do vínculo (ex: Jubilamento, Desistência, Transferido) ou se o aluno permanece ativo (Sem Evasão). |
+| **NATURALIDADE** | Texto (String) | Categórica Nominal | Cidade e Estado de nascimento do aluno (ex: Porto Walter-AC, Rio Branco-AC, Assis Chateaubriand-PR). |
+| **RACA_CENSO** | Texto (String) | Categórica Nominal | Autodeclaração de raça ou cor do discente seguindo as categorias padrão do Censo da Educação Superior (ex: 1.Branca, 2.Preta, 4.Parda, Não Declarada). |
+| **ETNIA** | Texto (String) | Categórica Nominal | Especificação de etnia, utilizado primariamente para autodeclaração de povos indígenas. |
+| **DEFICIENCIAS** | Texto (String) | Categórica Nominal | Indica a presença de alguma deficiência informada pelo aluno ou "Sem Deficiência". |
+| **BOLSAS** | Texto (String) | Categórica Nominal | Registro histórico concatenado por ponto e vírgula de todos os auxílios financeiros e bolas acadêmicas que o aluno recebeu. |
+| **BAIRRO** | Texto (String) | Categórica Nominal | Bairro residencial declarado no cadastro de endereço do discente (ex: Base, Vitória, Portal da Amazônia). |
+| **MUNICIPIO** | Texto (String) | Categórica Nominal | Município onde se localiza a residência atual do aluno (ex: Rio Branco, Itajubá). |
+| **ESTADO** | Texto (String) | Categórica Nominal | Unidade Federativa (UF) da residência atual do aluno (ex: Acre, Minas Gerais). |
+| **INFO_COTAS** | Texto (String) | Categórica Nominal | Categoria de concorrência ou política de ações afirmativas pela qual o estudante ingressou (ex: Ampla Concorrência, L2 - Candidatos de Escola Pública com Baixa Renda PPI). |
+| **COD_DISCIPLINA** | Texto (String) | Identificador Categórico | Código alfanumérico padrão de identificação da disciplina (ex: CCET010 para Lógica para Computação, CELA465 para Leitura e Produção de Textos Técnicos). |
+| **NOME_DISCIPLINA** | Texto (String) | Categórica Nominal | Nome oficial completo da disciplina cursada pelo aluno (ex: Lógica para Computação). |
+| **ANO_DISCIPLINA** | Numérico (Inteiro) | Temporal | Ano letivo no qual a matrícula na respectiva disciplina foi efetuada e cursada (ex: 2019, 2021). |
+| **PERIODO_DISCIPLINA** | Texto (String) | Temporal | Período ou semestre letivo específico em que a disciplina foi cursada (ex: 1° Semestre, 2° Semestre, PLE/ERE). |
+| **SITUACAO_DISCIPLINA** | Texto (String) | Categórica Nominal | Situação e resultado final do aluno após o encerramento do período na disciplina (ex: Aprovado, Reprovado, Reprovado por Freqüência, Trancamento Parcial, Matrícula). |
+| **CH_TOTAL** | Numérico (Decimal) | Quantitativa Contínua | Carga horária total da disciplina expressa em horas (ex: 60.00, 30.00, 90.00). |
+| **CREDITOS** | Numérico (Inteiro) | Quantitativa | Quantidade de créditos acadêmicos que a disciplina integraliza no histórico (ex: 3, 4). |
+| **MEDIA_FINAL** | Numérico (Decimal) | Quantitativa Contínua | Nota média final obtida pelo aluno após o encerramento da disciplina (ex: 8.00, 0.00, 2.58). |
+| **NUM_FALTAS** | Numérico (Inteiro) | Quantitativa Discreta | Quantidade total de faltas computadas para o aluno na disciplina ao longo do semestre. |
+| **PERIODO_IDEAL** | Numérico (Inteiro) | Categórica Ordinal | Semestre aconselhado na estrutura curricular do Projeto Pedagógico (PPC) para cursar a referida disciplina (ex: 1, 2). |
+| **COD_CURSO_OFERTA_DISC** | Numérico (Inteiro) | Identificador Categórico | Código oficial do curso de graduação que foi responsável por ofertar administrativamente a turma da disciplina (ex: 30, 71L). |
 
 ---
 
