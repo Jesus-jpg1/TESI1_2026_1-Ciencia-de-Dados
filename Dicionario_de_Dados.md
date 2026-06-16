@@ -54,31 +54,26 @@
 
 | Coluna | Tipo do Dado | Característica | Significado / Descrição |
 | :--- | :--- | :--- | :--- |
-| **ID_PESSOA** | Numérico (Inteiro) | Identificador Relacional | Código único da pessoa física, que atua como chave de ligação com a Tabela 1. |
-| **NOME_PESSOA** | Texto (String) | Categórica Nominal | Nome completo do aluno associado àquele registro de nota. |
-| **ID_ALUNO** | Numérico (Inteiro) | Identificador Único | Código numérico interno de identificação do discente no módulo acadêmico. |
-| **MATR_ALUNO** | Texto (String) | Identificador Único | Número de matrícula institucional do aluno vinculado ao curso. |
-| **NUM_VERSAO** | Texto (String) | Categórica Temporal | Identifica a versão da grade curricular exigida para aquele discente específico. |
-| **NOME_CURSO** | Texto (String) | Categórica Nominal | Nome por extenso do curso de graduação frequentado (Bacharelado em Sistemas de Informação). |
-| **COD_CURSO** | Numérico (Inteiro) | Identificador Categórico | Código de referência do curso dentro da instituição. |
-| **ID_VERSAO_CURSO** | Numérico (Inteiro) | Identificador Interno | Código numérico do sistema associado à versão do currículo. |
-| **ANO** | Numérico (Inteiro) | Temporal | Ano letivo correspondente à oferta da disciplina cursada. |
-| **COD_ATIV_CURRIC** | Texto (String) | Identificador Alfanumérico | Código de referência oficial da disciplina na grade (ex: CCJSA136). |
-| **NOME_ATIV_CURRIC** | Texto (String) | Categórica Nominal | Nome por extenso da disciplina ou atividade curricular cursada. |
-| **CREDITOS** | Numérico (Inteiro) | Quantitativa Discreta | Quantidade de créditos acadêmicos que a disciplina fornece ao ser concluída com êxito. |
-| **MEDIA_FINAL** | Numérico (Decimal/Float) | Quantitativa Contínua | Nota final alcançada pelo aluno na disciplina, variando numa escala definida. |
-| **DESCR_SITUACAO** | Texto (String) | Categórica Nominal | Indica o resultado do desempenho do aluno naquela atividade específica (ex: Aprovado, Reprovado). |
-| **PERIODO** | Texto (String) | Temporal | Especifica em qual semestre ou ciclo do ano letivo a disciplina foi cursada. |
-| **ID_CURSO_ALUNO** | Numérico (Inteiro) | Identificador do Vínculo | Código de banco de dados que amarra o aluno ao seu registro específico no curso. |
-| **SITUACAO_ITEM** | Numérico (Inteiro) | Categórica Numérica | Código numérico interno de sistema que representa a situação da disciplina no histórico. |
-| **CH_TEORICA** | Numérico (Inteiro) | Quantitativa Discreta | Representa a quantidade total de horas teóricas exigidas e cumpridas na disciplina. |
-| **CH_PRATICA** | Numérico (Inteiro) | Quantitativa Discreta | Representa a quantidade total de horas práticas em laboratório ou projeto exigidas na disciplina. |
-| **TOTAL_CARGA_HORARIA** | Numérico (Inteiro) | Quantitativa (Fórmula) | Soma das horas teóricas e práticas, representando o esforço total em horas exigido. |
-| **FORMA_INGRESSO** | Texto (String) | Categórica Nominal | Replica a informação do método pelo qual o aluno ingressou na universidade. |
-| **ANO_INGRESSO** | Numérico (Inteiro) | Temporal | O ano civil de entrada do aluno na graduação. |
-| **FORMA_EVASÃO** | Texto (String) | Categórica Nominal | Replica o status atual do vínculo ou motivo de saída. |
-| **ANO_EVASÃO** | Numérico (Inteiro/Nulo) | Temporal | Ano em que ocorreu a perda do vínculo, ficando nulo ou em branco para alunos ainda ativos. |
-| **SEXO** | Texto (Char) | Categórica Nominal | Replica a informação do gênero do aluno no registro. |
+| **ID_ALUNO** | Texto (String) | Identificador Único | Código hash que identifica anonimamente cada aluno, preservando sua privacidade. |
+| **ESTADO_CIVIL** | Texto (String) | Categórica Nominal | Estado civil do estudante registrado no cadastro acadêmico (ex: Solteiro(a)). |
+| **IDADE** | Texto (String) | Categórica Ordinal | Faixa etária do aluno registrada no sistema (ex: Menos de 19 anos). |
+| **ANO_INGRESSO** | Numérico (Inteiro) | Temporal | Ano civil em que o aluno iniciou oficialmente o seu vínculo com a instituição (ex: 2008). |
+| **FORMA_INGRESSO** | Texto (String) | Categórica Nominal | Método ou processo seletivo utilizado pelo discente para ingressar no curso (ex: Vestibular). |
+| **ANO_EVASAO** | Numérico (Inteiro) | Temporal | Ano civil em que foi oficializado o encerramento do vínculo do discente. |
+| **FORMA_EVASAO** | Texto (String) | Categórica Nominal | Motivo do encerramento ou interrupção do vínculo do aluno com a instituição (ex: Desistência). |
+| **NATURALIDADE** | Texto (String) | Categórica Nominal | Cidade e Estado de nascimento do aluno (ex: Rio Branco-AC). |
+| **ETNIA** | Texto (String) | Categórica Nominal | Autodeclaração de raça/cor ou etnia do discente (ex: Não Declarada). |
+| **DEFICIENCIAS** | Texto (String) | Categórica Nominal | Indicação da presença de alguma deficiência informada pelo aluno ou "Sem Deficiência". |
+| **COTAS** | Texto (String) | Categórica Nominal | Categoria de concorrência ou política de ações afirmativas de ingresso (ex: Ampla Concorrência). |
+| **NOME_DISCIPLINA** | Texto (String) | Categórica Nominal | Nome oficial completo da disciplina cursada pelo aluno (ex: Administração, Lógica para Computação). |
+| **ANO_DISCIPLINA** | Numérico (Inteiro) | Temporal | Ano letivo no qual a disciplina foi cursada (ex: 2008). |
+| **PERIODO_DISCIPLINA** | Texto (String) | Temporal | Período ou semestre letivo específico em que a matrícula na disciplina ocorreu (ex: 1° Semestre, DPLE). |
+| **SITUACAO_DISCIPLINA** | Texto (String) | Categórica Nominal | Situação e resultado final do aluno na respectiva disciplina (ex: Aprovado, Reprovado). |
+| **CH_TOTAL** | Numérico (Inteiro) | Quantitativa Discreta | Carga horária total da disciplina expressa em horas (ex: 60, 30, 90). |
+| **CREDITO_DISCIPLINA** | Texto (String) | Categórica Nominal | Distribuição dos créditos acadêmicos da disciplina em formato estruturado (ex: 4-0-0, 2-1-0). |
+| **MEDIA_FINAL** | Texto (String) | Categórica Ordinal | Faixa de nota média final obtida pelo aluno na disciplina (ex: 8-10, 5-8, 0-5). |
+| **FALTAS** | Texto (String) | Categórica Ordinal | Faixa percentual que representa a proporção de faltas do aluno na disciplina (ex: 0-5%, 20-25%). |
+| **BOLSA** | Texto (String) | Categórica Nominal | Indicação sobre o recebimento de auxílios financeiros ou bolsas acadêmicas pelo aluno (ex: Não Possuia). |
 
 ---
 
